@@ -1,0 +1,38 @@
+The Liskov Substitution Principle states that any class that is the child of a parent class should be usable
+in place of its parent without any unexpected behaviour.
+
+"If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without
+altering any of the desirable properties of that program."
+
+public static class Animal {
+  public String favoriteFood;
+  public Animal(String favoriteFood) {
+    this.favoriteFood = favoriteFood;
+  }
+}
+
+public static class Dog extends Animal {
+  public Dog(String favoriteFood) {
+    super(favoriteFood);
+  }
+}
+
+public static class Cat extends Animal {
+  public Cat(String favoriteFood) {
+    super(favoriteFood);
+  }
+}
+
+public static void GiveTreatTo(Animal animal) {
+  String msg = "You fed the " + animal.getClass().getSimpleName() + " some "  + animal.favoriteFood;
+  System.out.println(msg);
+}
+
+public static void main(String[] args) {
+  Dog rover = new Dog("bacon");
+  Cat bingo = new Cat("fish");
+
+  GiveTreatTo(rover);
+  GiveTreatTo(bingo);
+}
+
