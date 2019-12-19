@@ -12,7 +12,6 @@ merge conflict:-Merge conflicts happen when you merge branches that have competi
 help to decide which changes to incorporate in the final merge.
 
 git branches:-A branch in Git is simply a lightweight movable pointer to one of these commits. The default 
-branch name in Git is master . As you start making commits, you're given a master branch that points to the last
- made. Every time you commit, the master branch pointer moves forward automatically.
+branch name in Git is master .
 
-git commit:-The "commit" command is used to save your changes to the local repository
+git commit:-The "commit" command is used to save your changes to the local repository.
