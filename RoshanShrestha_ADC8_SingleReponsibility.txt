@@ -1,0 +1,20 @@
+Sinlge Responsibility Principle
+
+public class student{
+    saveStudentInformation(){}
+    displayStudentInformation(){}
+    printStudentInfo(){}
+}
+
+In the above class there are three functions and there is high range of responsibilities 
+so it voilates the single responsibility principle. In order to solve this we have to make
+different class for function having low cohesion like following:
+
+public class student{
+    saveStudentInformation(){}
+    displayStudentInformation(){}
+}
+public class printStudent{
+    printStudentInfo(){}
+}
+
