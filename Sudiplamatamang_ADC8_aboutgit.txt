@@ -1,0 +1,12 @@
+Git push:
+The git push command is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo.
+Git pull:
+The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content. 
+Git clone:
+Clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository.
+Merge Conflict:
+Merge conflicts happen when you merge branches that have competing commits, and Git needs your help to decide which changes to incorporate in the final merge.
+Git branches:
+A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master .
+Git commits:
+The git commit command captures a snapshot of the project's currently staged changes.
