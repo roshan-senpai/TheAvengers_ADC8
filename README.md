@@ -1,5 +1,5 @@
 # TheAvengers_ADC8
-Roshan Shrestha
-Ronit Shrestha
-Sudip Lama Tamang
-Pradeep Malla
+Roshan Shrestha,
+Ronit Shrestha,
+Sudip Lama Tamang,
+Pradeep Malla.
