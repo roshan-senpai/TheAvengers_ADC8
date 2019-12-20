@@ -1,0 +1,84 @@
+In object-oriented programming, the open/closed principle states "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification";[1] that is, such an entity can allow its behaviour to be extended without modifying its source code.
+
+The name open/closed principle has been used in two ways. Both ways use generalizations (for instance, inheritance or delegate functions) to resolve the apparent dilemma, but the goals, techniques, and results are different.
+
+Open-closed principle is one of the five SOLID principles of object-oriented design.
+OCP states that modules should be open for extension and closed for modification. New functionality should be implemented by adding new classes, attributes and methods, instead of changing the current ones.
+import java.util.HashMap;
+import java.util.Map;
+
+public class BasicCoffeeMachine {
+
+    private Map<CoffeeSelection, Configuration> configMap;
+    private Map<CoffeeSelection, GroundCoffee>; groundCoffee;
+    private BrewingUnit brewingUnit;
+
+    public BasicCoffeeMachine(Map<CoffeeSelection, GroundCoffee> coffee) {
+    this.groundCoffee = coffee;
+    this.brewingUnit = new BrewingUnit();
+
+    this.configMap = new HashMap<>();
+        this.configMap.put(CoffeeSelection.FILTER_COFFEE, new Configuration(30, 480));
+    }
+
+    public Coffee brewCoffee(CoffeeSelection selection) {
+    Configuration config = configMap.get(CoffeeSelection.FILTER_COFFEE);
+
+    // get the coffee
+    GroundCoffee groundCoffee = this.groundCoffee.get(CoffeeSelection.FILTER_COFFEE);
+
+    // brew a filter coffee
+    return this.brewingUnit.brew(CoffeeSelection.FILTER_COFFEE, groundCoffee, config.getQuantityWater());
+    }
+
+    public void addGroundCoffee(CoffeeSelection sel, GroundCoffee newCoffee) throws CoffeeException {
+    GroundCoffee existingCoffee = this.groundCoffee.get(sel);
+    if (existingCoffee != null) {
+        if (existingCoffee.getName().equals(newCoffee.getName())) {
+        existingCoffee.setQuantity(existingCoffee.getQuantity() + newCoffee.getQuantity());
+        } else {
+        throw new CoffeeException("Only one kind of coffee supported for each CoffeeSelection.");
+        }
+    } else {
+        this.groundCoffee.put(sel, newCoffee);
+    }
+    }
+}
+
+
+
+
+public class BasicCoffeeApp {
+
+    private BasicCoffeeMachine coffeeMachine;
+
+    public BasicCoffeeApp(BasicCoffeeMachine coffeeMachine) {
+    this.coffeeMachine = coffeeMachine;
+    }
+
+    public Coffee prepareCoffee(CoffeeSelection selection) throws CoffeeException {
+    Coffee coffee = this.coffeeMachine.brewCoffee(selection);
+    System.out.println("Coffee is ready!");
+    return coffee;
+    }
+
+    public static void main(String[] args) {
+    // create a Map of available coffee beans
+    Map<CoffeeSelection, GroundCoffee> beans = new HashMap<CoffeeSelection, GroundCoffee>();
+    beans.put(CoffeeSelection.FILTER_COFFEE, new GroundCoffee(
+        "My favorite filter coffee bean", 1000));
+
+    // get a new CoffeeMachine object
+    BasicCoffeeMachine machine = new BasicCoffeeMachine(beans);
+
+    // Instantiate CoffeeApp
+    BasicCoffeeApp app = new BasicCoffeeApp(machine);
+
+    // brew a fresh coffee
+    try {
+        app.prepareCoffee(CoffeeSelection.FILTER_COFFEE);
+    } catch (CoffeeException e) {
+        e.printStackTrace();
+    }
+    } // end main
+} // end CoffeeApp
