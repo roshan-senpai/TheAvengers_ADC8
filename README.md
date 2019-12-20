@@ -2,4 +2,6 @@
 Roshan Shrestha,
 Sudip Lama Tamang,
 Ronit Shrestha,
+Ronit Shrestha,
+Sudip Lama Tamang,
 Pradeep Malla.
