@@ -1,0 +1,7 @@
+git clone     :  To copy a git repository from remote source, also sets the remote to original source so that you can pull again.
+git push/pull :  Push or Pull your changes to remote. If you have added and committed your changes and you want to push them. 
+                 Or if your remote has updated and you want those latest changes.
+merge conflict:  Merge conflicts happen when you merge branches that have competing commits, and Git needs your help to decide 
+                 which changes to incorporate in the final merge.
+git branches  :  Lists out all the branches.
+git commit    :  commits your changes and sets it to new commit object for your remote.
